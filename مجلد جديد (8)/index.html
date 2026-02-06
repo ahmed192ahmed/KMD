@@ -1,0 +1,2377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Path Academy | Hematology & Lymphatic System Quiz</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-blue: #0c2461;
+            --secondary-blue: #1e3799;
+            --accent-gold: #f6b93b;
+            --accent-red: #e74c3c;
+            --accent-green: #27ae60;
+            --light-bg: #f8f9fa;
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --card-hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+            --border-radius: 16px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e7ec 100%);
+            color: var(--dark-text);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        .header {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 30px 40px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            border-left: 8px solid var(--accent-gold);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(12, 36, 97, 0.03) 0%, rgba(30, 55, 153, 0.03) 100%);
+            z-index: 0;
+        }
+        
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            flex: 1;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 2px solid rgba(12, 36, 97, 0.1);
+        }
+        
+        .logo {
+            height: 80px;
+            width: auto;
+            max-width: 200px;
+            object-fit: contain;
+        }
+        
+        .logo-placeholder {
+            height: 80px;
+            width: 80px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .platform-info {
+            flex: 1;
+        }
+        
+        .platform-name {
+            color: var(--primary-blue);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .platform-name::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px;
+        }
+        
+        .platform-subtitle {
+            color: var(--secondary-blue);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .platform-tagline {
+            color: var(--light-text);
+            font-size: 1rem;
+            font-weight: 500;
+            font-style: italic;
+            max-width: 600px;
+        }
+        
+        .header-stats {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 12px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .timer-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            padding: 14px 28px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(12, 36, 97, 0.2);
+            color: white;
+        }
+        
+        .timer-container i {
+            font-size: 1.5rem;
+        }
+        
+        .timer-text {
+            font-weight: 600;
+            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Quiz Info Cards */
+        .quiz-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+        
+        .info-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            box-shadow: var(--card-shadow);
+            transition: all 0.3s ease;
+            border-top: 5px solid var(--secondary-blue);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--card-hover-shadow);
+        }
+        
+        .info-card i {
+            color: var(--secondary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            background: rgba(30, 55, 153, 0.1);
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .info-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .info-card p {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        /* Main Quiz Container */
+        .main-content {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .quiz-container {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 40px;
+            margin-bottom: 30px;
+            position: relative;
+            min-height: 600px;
+        }
+        
+        /* Progress Bar */
+        .progress-container {
+            margin-bottom: 40px;
+        }
+        
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .progress-text {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .score-text {
+            font-weight: 700;
+            color: var(--secondary-blue);
+            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .progress-bar {
+            height: 14px;
+            background-color: #e8eaf6;
+            border-radius: 7px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+            position: relative;
+        }
+        
+        .progress-fill::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Question Header */
+        .question-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .question-counter {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 5px 15px rgba(12, 36, 97, 0.2);
+        }
+        
+        .question-topic {
+            background: rgba(30, 55, 153, 0.1);
+            color: var(--secondary-blue);
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Question Text */
+        .question-text-container {
+            background: #f8f9ff;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            border-left: 6px solid var(--accent-gold);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+        }
+        
+        .question-text {
+            font-size: 1.5rem;
+            color: var(--dark-text);
+            line-height: 1.7;
+            font-weight: 600;
+        }
+        
+        /* Options */
+        .options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .option {
+            padding: 22px 25px;
+            border: 2px solid #e1e5eb;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: white;
+        }
+        
+        .option:hover {
+            border-color: var(--secondary-blue);
+            background-color: rgba(30, 55, 153, 0.03);
+            transform: translateX(5px);
+        }
+        
+        .option.selected {
+            border-color: var(--secondary-blue);
+            background-color: rgba(30, 55, 153, 0.08);
+            box-shadow: 0 8px 20px rgba(30, 55, 153, 0.1);
+        }
+        
+        .option.correct {
+            border-color: var(--accent-green);
+            background-color: rgba(39, 174, 96, 0.1);
+        }
+        
+        .option.incorrect {
+            border-color: var(--accent-red);
+            background-color: rgba(231, 76, 60, 0.1);
+        }
+        
+        .option-letter {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            background-color: #f0f2ff;
+            border-radius: 12px;
+            margin-right: 25px;
+            font-weight: 800;
+            color: var(--primary-blue);
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .option.selected .option-letter {
+            background-color: var(--secondary-blue);
+            color: white;
+            box-shadow: 0 5px 10px rgba(30, 55, 153, 0.3);
+        }
+        
+        .option.correct .option-letter {
+            background-color: var(--accent-green);
+            color: white;
+        }
+        
+        .option.incorrect .option-letter {
+            background-color: var(--accent-red);
+            color: white;
+        }
+        
+        .option-text {
+            flex: 1;
+            color: var(--dark-text);
+            font-weight: 500;
+        }
+        
+        /* Answer Feedback */
+        .answer-feedback {
+            margin-top: 25px;
+            padding: 20px;
+            background: #f8f9ff;
+            border-radius: var(--border-radius);
+            border-left: 5px solid var(--secondary-blue);
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .answer-feedback.show {
+            display: block;
+        }
+        
+        .feedback-title {
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .feedback-content {
+            color: #555;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+        
+        /* Navigation Buttons */
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            padding: 16px 35px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(12, 36, 97, 0.3);
+        }
+        
+        .btn-secondary {
+            background: white;
+            color: var(--primary-blue);
+            border: 2px solid #e1e5eb;
+        }
+        
+        .btn-secondary:hover {
+            background: #f8f9ff;
+            border-color: var(--secondary-blue);
+        }
+        
+        .btn-success {
+            background: linear-gradient(135deg, var(--accent-green) 0%, #2ecc71 100%);
+            color: white;
+        }
+        
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(39, 174, 96, 0.3);
+        }
+        
+        .btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+            color: #666;
+        }
+        
+        /* Question List Sidebar */
+        .questions-sidebar {
+            width: 320px;
+            min-width: 300px;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 30px;
+            height: fit-content;
+        }
+        
+        .sidebar-title {
+            color: var(--primary-blue);
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f2ff;
+        }
+        
+        .questions-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .question-number {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background-color: #f0f2ff;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+            color: var(--primary-blue);
+            border: 2px solid transparent;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .question-number:hover {
+            background-color: #e0e5ff;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question-number.current {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+            color: white;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(12, 36, 97, 0.3);
+        }
+        
+        .question-number.answered {
+            background-color: rgba(39, 174, 96, 0.1);
+            color: var(--accent-green);
+            border-color: rgba(39, 174, 96, 0.3);
+        }
+        
+        .question-number.incorrect {
+            background-color: rgba(231, 76, 60, 0.1);
+            color: var(--accent-red);
+            border-color: rgba(231, 76, 60, 0.3);
+        }
+        
+        .question-number.skipped {
+            background-color: rgba(149, 165, 166, 0.1);
+            color: #95a5a6;
+            border-color: rgba(149, 165, 166, 0.3);
+        }
+        
+        /* Results Container */
+        .results-container {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--card-shadow);
+            padding: 50px;
+            text-align: center;
+            display: none;
+            width: 100%;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        .results-title {
+            color: var(--primary-blue);
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .score-circle-container {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 50px;
+        }
+        
+        .score-circle {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: conic-gradient(var(--secondary-blue) 0% 0%, #e8eaf6 0% 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 15px 40px rgba(12, 36, 97, 0.2);
+        }
+        
+        .score-circle-inner {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .score-percentage {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            line-height: 1;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .score-text {
+            color: var(--light-text);
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+        
+        .results-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin: 40px 0;
+        }
+        
+        .result-card {
+            background-color: #f8f9ff;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            transition: transform 0.3s ease;
+            border-top: 5px solid;
+        }
+        
+        .result-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .result-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .result-card p {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1;
+        }
+        
+        .result-card.correct-card {
+            border-color: var(--accent-green);
+        }
+        
+        .result-card.correct-card h3 {
+            color: var(--accent-green);
+        }
+        
+        .result-card.correct-card p {
+            color: var(--accent-green);
+        }
+        
+        .result-card.incorrect-card {
+            border-color: var(--accent-red);
+        }
+        
+        .result-card.incorrect-card h3 {
+            color: var(--accent-red);
+        }
+        
+        .result-card.incorrect-card p {
+            color: var(--accent-red);
+        }
+        
+        .result-card.skipped-card {
+            border-color: #f6b93b;
+        }
+        
+        .result-card.skipped-card h3 {
+            color: #f6b93b;
+        }
+        
+        .result-card.skipped-card p {
+            color: #f6b93b;
+        }
+        
+        .result-card.total-card {
+            border-color: var(--primary-blue);
+        }
+        
+        .result-card.total-card h3 {
+            color: var(--primary-blue);
+        }
+        
+        .result-card.total-card p {
+            color: var(--primary-blue);
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            color: var(--light-text);
+            font-size: 0.95rem;
+            margin-top: 40px;
+            border-top: 1px solid #e1e5eb;
+        }
+        
+        .footer-logo {
+            color: var(--primary-blue);
+            font-weight: 800;
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .main-content {
+                flex-direction: column;
+            }
+            
+            .questions-sidebar {
+                width: 100%;
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .platform-name {
+                font-size: 2.2rem;
+            }
+            
+            .question-text {
+                font-size: 1.3rem;
+            }
+            
+            .score-circle-container {
+                width: 240px;
+                height: 240px;
+            }
+            
+            .score-circle-inner {
+                width: 170px;
+                height: 170px;
+            }
+            
+            .score-percentage {
+                font-size: 3.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 25px;
+            }
+            
+            .logo-section {
+                width: 100%;
+            }
+            
+            .header-stats {
+                align-items: flex-start;
+                width: 100%;
+            }
+            
+            .timer-container {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .quiz-container {
+                padding: 25px;
+            }
+            
+            .question-text {
+                font-size: 1.2rem;
+            }
+            
+            .option {
+                padding: 18px 20px;
+            }
+            
+            .option-letter {
+                width: 45px;
+                height: 45px;
+                margin-right: 20px;
+            }
+            
+            .btn {
+                padding: 14px 25px;
+                font-size: 1rem;
+            }
+            
+            .results-details {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .platform-name {
+                font-size: 1.8rem;
+            }
+            
+            .logo {
+                height: 60px;
+            }
+            
+            .question-text {
+                font-size: 1.1rem;
+            }
+            
+            .question-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .navigation-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .results-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .questions-list {
+                grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+            }
+            
+            .question-number {
+                width: 50px;
+                height: 50px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-section">
+                <div class="logo-container">
+                    <!-- Platform Logo -->
+                    <img src="https://drive.google.com/uc?export=view&id=1P6noYkckN7w8943e9iXtQQtF3tG0skdM" alt="Doctor's Path Academy Logo" class="logo" onerror="this.style.display='none'; document.getElementById('logo-placeholder').style.display='flex';">
+                    <div id="logo-placeholder" class="logo-placeholder" style="display: none;">DPA</div>
+                </div>
+                <div class="platform-info">
+                    <h1 class="platform-name">Doctor's Path Academy</h1>
+                    <p class="platform-subtitle">Medical Education Excellence</p>
+                    <p class="platform-tagline">Mastering Hematology & Lymphatic System</p>
+                </div>
+            </div>
+            <div class="header-stats">
+                <div class="timer-container">
+                    <i class="fas fa-clock"></i>
+                    <span class="timer-text">No Time Limit - Learn at Your Pace</span>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Quiz Information Cards -->
+        <div class="quiz-info">
+            <div class="info-card">
+                <i class="fas fa-question-circle"></i>
+                <h3>Complete Assessment</h3>
+                <p>Comprehensive quiz with all 125 questions covering Hematology and Lymphatic System anatomy, physiology, pathology, and pharmacology.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-book-medical"></i>
+                <h3>Topics Covered</h3>
+                <p>Lymphatic System Anatomy, Hematology, Blood Disorders, Infectious Diseases, Pharmacology, and Clinical Pathology.</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-graduation-cap"></i>
+                <h3>Learning Objectives</h3>
+                <p>Master key concepts, test your knowledge, identify areas for improvement, and prepare for medical exams with immediate feedback.</p>
+            </div>
+        </div>
+        
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <!-- Quiz Container -->
+            <div class="quiz-container" id="quiz-container">
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <div class="progress-header">
+                        <span class="progress-text" id="progress-text">Question 1 of 125</span>
+                        <span class="score-text" id="score-text">Score: 0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+                
+                <!-- Question Header -->
+                <div class="question-header">
+                    <div class="question-counter" id="question-counter">Question 1</div>
+                    <div class="question-topic" id="question-topic">Anatomy & Physiology</div>
+                </div>
+                
+                <!-- Question Text -->
+                <div class="question-text-container">
+                    <div class="question-text" id="question-text">Loading question...</div>
+                </div>
+                
+                <!-- Options -->
+                <div class="options-container" id="options-container">
+                    <!-- Options will be dynamically inserted here -->
+                </div>
+                
+                <!-- Answer Feedback -->
+                <div class="answer-feedback" id="answer-feedback">
+                    <div class="feedback-title" id="feedback-title">Explanation</div>
+                    <div class="feedback-content" id="feedback-content"></div>
+                </div>
+                
+                <!-- Navigation Buttons -->
+                <div class="navigation-buttons">
+                    <button class="btn btn-secondary" id="prev-btn" disabled>
+                        <i class="fas fa-arrow-left"></i> Previous Question
+                    </button>
+                    <button class="btn btn-primary" id="next-btn">
+                        Next Question <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="btn btn-success" id="submit-btn" style="display: none;">
+                        <i class="fas fa-paper-plane"></i> Submit Quiz
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Questions Sidebar -->
+            <div class="questions-sidebar" id="questions-list-container">
+                <h3 class="sidebar-title">
+                    <i class="fas fa-list-ol"></i> Question Navigation
+                </h3>
+                <div class="questions-list" id="questions-list">
+                    <!-- Question numbers will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results Container -->
+        <div class="results-container" id="results-container">
+            <h2 class="results-title">Quiz Results</h2>
+            
+            <div class="score-circle-container">
+                <div class="score-circle" id="score-circle">
+                    <div class="score-circle-inner">
+                        <div class="score-percentage" id="score-percentage">0%</div>
+                        <div class="score-text">Your Score</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="results-details">
+                <div class="result-card correct-card">
+                    <h3>Correct Answers</h3>
+                    <p class="correct" id="correct-answers">0</p>
+                </div>
+                <div class="result-card incorrect-card">
+                    <h3>Incorrect Answers</h3>
+                    <p class="incorrect" id="incorrect-answers">0</p>
+                </div>
+                <div class="result-card skipped-card">
+                    <h3>Skipped Questions</h3>
+                    <p id="skipped-questions">0</p>
+                </div>
+                <div class="result-card total-card">
+                    <h3>Total Questions</h3>
+                    <p id="total-questions-result">125</p>
+                </div>
+            </div>
+            
+            <button class="btn btn-primary" id="restart-btn" style="padding: 18px 45px; font-size: 1.2rem;">
+                <i class="fas fa-redo"></i> Restart Quiz
+            </button>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-logo">Doctor's Path Academy</div>
+            <p>© 2023 Doctor's Path Academy. All rights reserved.</p>
+            <p>This comprehensive quiz is designed for medical education and exam preparation purposes.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Complete Quiz Data - ALL 125 questions from your text
+        const quizData = [
+            // Anatomy & Physiology Questions (1-17)
+            {
+                question: "1. Which one of the following glands produces lymphocytes?",
+                options: ["A. Thymus", "B. Thyroid", "C. Pancreas", "D. Liver"],
+                answer: "A",
+                explanation: "The thymus gland is responsible for the production and maturation of T-lymphocytes.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "2. Lymph vessels are present in which of the following?",
+                options: ["A. Central nervous system", "B. Eyeball", "C. Dermis of the skin", "D. Cartilage"],
+                answer: "C",
+                explanation: "Lymph vessels are present in the dermis of the skin, but absent in the CNS, eyeball, and cartilage.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "3. Which of the following best describes the lymphatic system?",
+                options: [
+                    "A. Present in the central nervous system",
+                    "B. There is a circulation",
+                    "C. Essential for immunologic defences of the body against bacteria and viruses",
+                    "D. Absorption of dietary protein"
+                ],
+                answer: "C",
+                explanation: "The lymphatic system is essential for immunologic defenses against pathogens like bacteria and viruses.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "4. What is the end of the lymph?",
+                options: ["A. Venous system", "B. Liver", "C. Heart", "D. Tissue fluid"],
+                answer: "A",
+                explanation: "Lymph ultimately drains into the venous system via the subclavian veins.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "5. What is the end of the thoracic duct?",
+                options: ["A. Right venous angle", "B. Left venous angle", "C. Inferior vena cava", "D. Right brachiocephalic vein"],
+                answer: "B",
+                explanation: "The thoracic duct drains into the left venous angle (junction of left internal jugular and subclavian veins).",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "6. What is the end of the right lymphatic trunk?",
+                options: ["A. Right venous angle", "B. Left venous angle", "C. Inferior vena cava", "D. Left brachiocephalic vein"],
+                answer: "A",
+                explanation: "The right lymphatic trunk drains into the right venous angle.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "7. Where is the beginning of the thoracic duct?",
+                options: ["A. In the pelvis", "B. In the abdomen", "C. In the thorax", "D. In the neck"],
+                answer: "B",
+                explanation: "The thoracic duct begins in the abdomen at the cisterna chyli.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "8. Cisterna chyli gives origin to which of the following?",
+                options: ["A. Right lymphatic trunk", "B. Left jugular lymph trunk", "C. Thoracic duct", "D. Right subclavian lymph trunk"],
+                answer: "C",
+                explanation: "The cisterna chyli gives origin to the thoracic duct.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "9. Where is the thymus gland normally present?",
+                options: ["A. Posterior mediastinum", "B. Abdomen", "C. Middle Mediastinum", "D. Anterior mediastinum"],
+                answer: "D",
+                explanation: "The thymus gland is located in the anterior mediastinum.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "10. What is the origin of the splenic artery?",
+                options: ["A. Celiac trunk", "B. Hepatic artery", "C. Superior mesenteric artery", "D. Left gastroepiploic artery"],
+                answer: "A",
+                explanation: "The splenic artery originates from the celiac trunk.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "11. Which one of the following best describes the spleen?",
+                options: [
+                    "A. Its inferior border is notched",
+                    "B. Right colic flexure is related",
+                    "C. Its long axis corresponds with 10th rib",
+                    "D. Normally, it can be felt"
+                ],
+                answer: "C",
+                explanation: "The spleen's long axis corresponds with the 10th rib.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "12. Which one of the following best describes the spleen?",
+                options: [
+                    "A. Separated from the stomach by the lesser sac",
+                    "B. Tail of pancreas is related",
+                    "C. Its long axis corresponds with the 8th rib",
+                    "D. 3 Ounces weight"
+                ],
+                answer: "B",
+                explanation: "The tail of the pancreas is related to the hilum of the spleen.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "13. Visceral surface of the spleen is related to which of the following?",
+                options: ["A. Left kidney", "B. Pyloric part of the stomach", "C. Diaphragm", "D. Duodenum"],
+                answer: "A",
+                explanation: "The visceral surface of the spleen is related to the left kidney.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "14. Posterior surface of the spleen is related to which of the following?",
+                options: ["A. Left kidney", "B. Pyloric part of the stomach", "C. Diaphragm", "D. Pancreas"],
+                answer: "C",
+                explanation: "The posterior surface of the spleen is related to the diaphragm.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "15. Lower pole of the spleen extends forward as far as which of the following?",
+                options: ["A. Mid-clavicular", "B. Mid-axillary", "C. Anterior axillary", "D. Posterior axillary"],
+                answer: "B",
+                explanation: "The lower pole of the spleen extends forward as far as the mid-axillary line.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "16. How many lymph nodes in the body?",
+                options: ["A. 250", "B. 350", "C. 450", "D. 550"],
+                answer: "C",
+                explanation: "There are approximately 450 lymph nodes in the human body.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "17. What is the main venous drainage of the thymus gland?",
+                options: ["A. Right brachiocephalic vein", "B. Left brachiocephalic vein", "C. Inferior vena cava", "D. Azygos vein"],
+                answer: "B",
+                explanation: "The thymus gland primarily drains into the left brachiocephalic vein.",
+                topic: "Anatomy & Physiology"
+            },
+            // Hematology Questions (18-42)
+            {
+                question: "18. What is the approximate percentage of plasma in total blood volume?",
+                options: ["A. 45%", "B. 55%", "C. 65%", "D. 75%"],
+                answer: "B",
+                explanation: "Plasma constitutes about 55% of total blood volume.",
+                topic: "Hematology"
+            },
+            {
+                question: "19. Which plasma protein is primarily responsible for maintaining colloidal osmotic pressure?",
+                options: ["A. Globulin", "B. Fibrinogen", "C. Albumin", "D. Gamma globulin"],
+                answer: "C",
+                explanation: "Albumin is the primary protein responsible for maintaining colloidal osmotic pressure.",
+                topic: "Hematology"
+            },
+            {
+                question: "20. What is the normal lifespan of a human red blood cell?",
+                options: ["A. 30 days", "B. 60 days", "C. 90 days", "D. 120 days"],
+                answer: "D",
+                explanation: "The normal lifespan of a human RBC is about 120 days.",
+                topic: "Hematology"
+            },
+            {
+                question: "21. Which organ is the primary site of erythropoietin production in adults?",
+                options: ["A. Liver", "B. Kidney", "C. Spleen", "D. Bone marrow"],
+                answer: "B",
+                explanation: "In adults, the kidney is the primary site of erythropoietin production.",
+                topic: "Hematology"
+            },
+            {
+                question: "22. In fetal life, where does erythropoiesis primarily occur during the first six months?",
+                options: ["A. Bone marrow", "B. Liver and spleen", "C. Kidney", "D. Thymus"],
+                answer: "B",
+                explanation: "During the first six months of fetal life, erythropoiesis primarily occurs in the liver and spleen.",
+                topic: "Hematology"
+            },
+            {
+                question: "23. Which type of hemoglobin consists of 2 alpha and 2 gamma chains?",
+                options: ["A. HbA", "B. HbA2", "C. HbF", "D. HbS"],
+                answer: "C",
+                explanation: "Hemoglobin F (fetal hemoglobin) consists of 2 alpha and 2 gamma chains.",
+                topic: "Hematology"
+            },
+            {
+                question: "24. What is the main stimulus for erythropoiesis?",
+                options: ["A. High blood glucose", "B. Low oxygen tension in arterial blood", "C. High blood pressure", "D. Elevated pH"],
+                answer: "B",
+                explanation: "Low oxygen tension in arterial blood is the main stimulus for erythropoiesis.",
+                topic: "Hematology"
+            },
+            {
+                question: "25. Which vitamin requires intrinsic factor for absorption?",
+                options: ["A. Vitamin C", "B. Vitamin B12", "C. Folic acid", "D. Vitamin K"],
+                answer: "B",
+                explanation: "Vitamin B12 requires intrinsic factor for absorption in the ileum.",
+                topic: "Hematology"
+            },
+            {
+                question: "26. What condition results from a deficiency of spectrin and ankyrin in RBC membranes?",
+                options: ["A. Sickle cell anemia", "B. Spherocytosis", "C. Aplastic anemia", "D. Pernicious anemia"],
+                answer: "B",
+                explanation: "Hereditary spherocytosis results from deficiencies in spectrin and ankyrin in RBC membranes.",
+                topic: "Hematology"
+            },
+            {
+                question: "27. Which plasma protein is most involved in blood clot formation?",
+                options: ["A. Albumin", "B. Gamma globulin", "C. Fibrinogen", "D. Transferrin"],
+                answer: "C",
+                explanation: "Fibrinogen is converted to fibrin during blood clot formation.",
+                topic: "Hematology"
+            },
+            {
+                question: "28. Where is iron primarily absorbed in the gastrointestinal tract?",
+                options: ["A. Stomach", "B. Jejunum", "C. Upper duodenum", "D. Colon"],
+                answer: "C",
+                explanation: "Iron is primarily absorbed in the upper duodenum.",
+                topic: "Hematology"
+            },
+            {
+                question: "29. Which of the following increases blood viscosity?",
+                options: ["A. Anemia", "B. Polycythemia", "C. Hypoproteinemia", "D. Overhydration"],
+                answer: "B",
+                explanation: "Polycythemia (increased RBC count) increases blood viscosity.",
+                topic: "Hematology"
+            },
+            {
+                question: "30. What is the average blood volume in a normal adult?",
+                options: ["A. 3 liters", "B. 5 liters", "C. 7 liters", "D. 10 liters"],
+                answer: "B",
+                explanation: "The average blood volume in a normal adult is about 5 liters.",
+                topic: "Hematology"
+            },
+            {
+                question: "31. Which enzyme in RBCs protects against hydrogen peroxide toxicity?",
+                options: ["A. Carbonic anhydrase", "B. Histaminase", "C. Glucose-6-phosphate dehydrogenase", "D. Catalase"],
+                answer: "C",
+                explanation: "Glucose-6-phosphate dehydrogenase protects RBCs against oxidative damage from hydrogen peroxide.",
+                topic: "Hematology"
+            },
+            {
+                question: "32. What is the normal albumin/globulin (A/G) ratio?",
+                options: ["A. 0.5-0.8", "B. 1.2-1.6", "C. 2.0-2.5", "D. 3.0-3.5"],
+                answer: "B",
+                explanation: "The normal albumin/globulin ratio is 1.2-1.6.",
+                topic: "Hematology"
+            },
+            {
+                question: "33. A person with blood group AB has which of these?",
+                options: [
+                    "A. Anti-A antibodies in plasma",
+                    "B. Anti-B antibodies in plasma",
+                    "C. Both A and B antigens on RBCs",
+                    "D. Neither A nor B antigens on RBCs"
+                ],
+                answer: "C",
+                explanation: "Blood group AB has both A and B antigens on RBCs and no anti-A or anti-B antibodies in plasma.",
+                topic: "Hematology"
+            },
+            {
+                question: "34. Which blood type is considered the universal donor?",
+                options: ["A. A", "B. B", "C. AB", "D. O"],
+                answer: "D",
+                explanation: "Blood type O negative is considered the universal donor.",
+                topic: "Hematology"
+            },
+            {
+                question: "35. Monocytes differentiate into which cell type in tissues?",
+                options: ["A. Osteoblasts", "B. Macrophages", "C. Plasma cells", "D. Mast cells"],
+                answer: "B",
+                explanation: "Monocytes differentiate into macrophages in tissues.",
+                topic: "Hematology"
+            },
+            {
+                question: "36. T-lymphocytes maturation and differentiation take place in which organ?",
+                options: ["A. Bone marrow", "B. Spleen", "C. Thymus", "D. Liver"],
+                answer: "C",
+                explanation: "T-lymphocytes mature and differentiate in the thymus.",
+                topic: "Hematology"
+            },
+            {
+                question: "37. Polymorphonuclear leukocytes is another name for which type of cells?",
+                options: ["A. Neutrophils", "B. Mononuclear leukocytes", "C. Agranulocytes", "D. Mast cells"],
+                answer: "A",
+                explanation: "Polymorphonuclear leukocytes refer to neutrophils.",
+                topic: "Hematology"
+            },
+            {
+                question: "38. What is the normal life span of RBCs?",
+                options: ["A. 1 month", "B. 4 months", "C. 1 year", "D. 2 years"],
+                answer: "B",
+                explanation: "The normal lifespan of RBCs is about 4 months (120 days).",
+                topic: "Hematology"
+            },
+            {
+                question: "39. Which cytoskeletal protein helps maintain RBC shape?",
+                options: ["A. Keratin", "B. Spectrin", "C. Myosin", "D. Tubulin"],
+                answer: "B",
+                explanation: "Spectrin is a cytoskeletal protein that helps maintain RBC shape and flexibility.",
+                topic: "Hematology"
+            },
+            {
+                question: "40. Which WBC increases in chronic infections like tuberculosis?",
+                options: ["A. Neutrophils", "B. Eosinophils", "C. Lymphocytes", "D. Basophils"],
+                answer: "C",
+                explanation: "Lymphocytes increase in chronic infections like tuberculosis.",
+                topic: "Hematology"
+            },
+            {
+                question: "41. Which hormone stimulates RBC production?",
+                options: ["A. Insulin", "B. Erythropoietin", "C. Thyroxine", "D. Cortisol"],
+                answer: "B",
+                explanation: "Erythropoietin stimulates RBC production in the bone marrow.",
+                topic: "Hematology"
+            },
+            {
+                question: "42. In which condition does neutrophilia occur?",
+                options: ["A. Typhoid fever", "B. Appendicitis", "C. Viral influenza", "D. Radiation therapy"],
+                answer: "B",
+                explanation: "Neutrophilia occurs in acute bacterial infections like appendicitis.",
+                topic: "Hematology"
+            },
+            // Infectious Diseases (43-63)
+            {
+                question: "43. The 'closed safety pin' appearance during bipolar staining is characteristic of which pathogen?",
+                options: ["A. Francisella tularensis", "B. Bartonella henselae", "C. Brucella abortus", "D. Yersinia pestis"],
+                answer: "D",
+                explanation: "Yersinia pestis shows a 'closed safety pin' appearance with bipolar staining.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "44. Which of the following is the primary mode of transmission for the Bubonic plague?",
+                options: [
+                    "A. Ingestion of unpasteurized milk",
+                    "B. Respiratory droplets from humans",
+                    "C. Bite from an infected flea",
+                    "D. Direct contact with rabbit fur"
+                ],
+                answer: "C",
+                explanation: "Bubonic plague is primarily transmitted by the bite of an infected flea.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "45. Which of the following is the virulence factor of Yersinia pestis responsible for inhibiting phagocytosis?",
+                options: ["A. Envelope antigen (F-1)", "B. Exotoxin", "C. Endotoxin", "D. Coagulase"],
+                answer: "A",
+                explanation: "The envelope antigen (F-1) of Yersinia pestis inhibits phagocytosis.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "46. Which of the following best defines bacteremia?",
+                options: [
+                    "A. Multiplication of bacteria in the bloodstream with clinical symptoms",
+                    "B. Simple presence of bacteria in the bloodstream with no or mild symptoms",
+                    "C. Infection of the lymph nodes only",
+                    "D. Presence of viruses in the blood"
+                ],
+                answer: "B",
+                explanation: "Bacteremia refers to the simple presence of bacteria in the bloodstream with no or mild symptoms.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "47. Which of the following organisms is the most common cause of bloodstream infections associated with prosthetic implants and central venous catheters?",
+                options: ["A. Escherichia coli", "B. Pseudomonas aeruginosa", "C. Coagulase-negative Staphylococci", "D. Brucella melitensis"],
+                answer: "C",
+                explanation: "Coagulase-negative Staphylococci are the most common cause of bloodstream infections associated with prosthetic implants and central venous catheters.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "48. Which of the following is a specific manifestation of Bartonella henselae infection in AIDS patients?",
+                options: ["A. Buboes", "B. Bacillary angiomatosis", "C. Undulant fever", "D. Pneumonia"],
+                answer: "B",
+                explanation: "Bacillary angiomatosis is a specific manifestation of Bartonella henselae infection in AIDS patients.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "49. A 45-year-old slaughterhouse worker presents with a fever that rises during the day and falls at night, accompanied by profuse sweating and joint pain. What is the most likely diagnosis?",
+                options: ["A. Plague", "B. Tularemia", "C. Brucellosis", "D. Septicemia"],
+                answer: "C",
+                explanation: "Brucellosis presents with undulant fever (rising during the day, falling at night), profuse sweating, and joint pain, often in slaughterhouse workers.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "50. A 10-year-old boy presents with a swollen, painful lymph node in his groin and a high fever. He recently returned from a camping trip where he noticed several flea bites. What is the characteristic clinical finding for his likely condition?",
+                options: ["A. Stellate microabscesses", "B. Buboes", "C. 'Owl-eye' inclusions", "D. Rose spots"],
+                answer: "B",
+                explanation: "Buboes (swollen, painful lymph nodes) are characteristic of bubonic plague, transmitted by flea bites.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "51. A researcher working in a lab with wild rodent samples accidentally inhales an aerosolized pathogen. They quickly develop a rapidly progressing pneumonia. Which organism is the most likely cause?",
+                options: ["A. Yersinia pestis", "B. Brucella melitensis", "B. Bartonella henselae", "D. Streptococcus pyogenes"],
+                answer: "A",
+                explanation: "Inhalation of Yersinia pestis can cause pneumonic plague, a rapidly progressing pneumonia.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "52. A 5-year-old girl presents with a fever and a swollen lymph node under her arm. Her mother mentions the girl was scratched by a stray cat two weeks ago. Histology of the lymph node would likely show which one of the following?",
+                options: ["A. Central granuloma", "B. Safety pin staining bacteria", "C. Stellate microabscesses", "D. Gram-positive cocci in chains"],
+                answer: "C",
+                explanation: "Cat scratch disease (Bartonella henselae) shows stellate microabscesses on lymph node histology.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "53. A patient hospitalized for a long duration with a urinary catheter develops a bloodstream infection. Which organism is frequently associated with prolonged hospitalization?",
+                options: ["A. Brucella suis", "B. Pseudomonas aeruginosa", "C. Francisella tularensis", "D. Yersinia pestis"],
+                answer: "B",
+                explanation: "Pseudomonas aeruginosa is frequently associated with hospital-acquired infections, especially in patients with indwelling catheters.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "54. A 25-year-old patient presents with fever, sore throat, and bilateral cervical lymphadenopathy. A lymph node biopsy reveals prominent paracortical expansion with immunoblasts. Which of the following is the most likely causative agent?",
+                options: ["A. Mycobacterium tuberculosis", "B. Epstein-Barr virus", "C. Toxoplasma gondii", "D. Bartonella henselae"],
+                answer: "B",
+                explanation: "Epstein-Barr virus causes infectious mononucleosis with paracortical expansion and immunoblasts in lymph nodes.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "55. In the histological examination of a lymph node, you observe well-formed secondary follicles with large, pale germinal centers containing numerous tingible body macrophages and distinct mantle zones. The follicles are variable in size and do not infiltrate the capsule. This pattern is most characteristic of:",
+                options: ["A. Hodgkin lymphoma", "B. Metastatic carcinoma", "C. Reactive follicular hyperplasia", "D. Sinus histiocytosis"],
+                answer: "C",
+                explanation: "Reactive follicular hyperplasia shows well-formed secondary follicles with tingible body macrophages and variable size follicles.",
+                topic: "Pathology"
+            },
+            {
+                question: "56. A pathologist examines a lymph node showing multiple granulomas with central caseous necrosis and Langhans giant cells. The granulomas are of variable size, with near-total replacement of the node by necrosis. Which of the following complications is most specifically associated with this condition?",
+                options: [
+                    "A. Formation of non-caseating 'naked' granulomas",
+                    "B. Development of a cold abscess that may open into the peritoneum",
+                    "C. Stellate necrotizing granulomas with microabscesses",
+                    "D. Sinus expansion due to histiocyte distension"
+                ],
+                answer: "B",
+                explanation: "Tuberculous lymphadenitis with caseous necrosis can lead to cold abscess formation that may drain into the peritoneum.",
+                topic: "Pathology"
+            },
+            {
+                question: "57. Which of the following pairs correctly matches a type of chronic specific lymphadenitis with its characteristic histopathological finding?",
+                options: [
+                    "A. Sarcoidosis – Caseating granulomas with Langhans giant cells",
+                    "B. Cat scratch disease – Non-caseating epithelioid cell microgranulomas",
+                    "C. Tuberculous lymphadenitis – Stellate necrotizing granulomas with neutrophilic cores",
+                    "D. Toxoplasmosis – Non-caseating epithelioid cell granulomas"
+                ],
+                answer: "D",
+                explanation: "Toxoplasmosis lymphadenitis shows non-caseating epithelioid cell granulomas.",
+                topic: "Pathology"
+            },
+            {
+                question: "58. A patient with systemic lupus erythematosus (SLE) develops lymphadenopathy. A lymph node biopsy would most likely reveal which pattern of reactive hyperplasia?",
+                options: [
+                    "A. Follicular hyperplasia with tingible body macrophages",
+                    "B. Sinus hyperplasia with distension by histiocytes",
+                    "C. Paracortical hyperplasia due to T-cell stimulation",
+                    "D. Effacement of architecture by monotonous lymphoid proliferation"
+                ],
+                answer: "C",
+                explanation: "SLE typically causes paracortical hyperplasia due to T-cell stimulation.",
+                topic: "Pathology"
+            },
+            {
+                question: "59. The primary histological difference between the granulomas of sarcoidosis and those of tuberculosis in lymph nodes is best described as:",
+                options: [
+                    "A. Presence vs. absence of epithelioid cells",
+                    "B. Caseation vs. non-caseation",
+                    "C. Location in the cortex vs. medulla",
+                    "D. Association with neutrophils vs. lymphocytes"
+                ],
+                answer: "B",
+                explanation: "Tuberculosis granulomas show caseation necrosis, while sarcoidosis granulomas are non-caseating.",
+                topic: "Pathology"
+            },
+            {
+                question: "60. Which of the following structures is correctly paired with its primary lymphoid function or cellular constituency?",
+                options: [
+                    "A. Paracortex – B cell zone and primary follicles",
+                    "B. Medullary sinuses – Contain efferent lymphatic vessels",
+                    "C. Germinal center – Site of naïve T cell maturation",
+                    "D. Subcapsular sinus – Initial point of entry for afferent lymph"
+                ],
+                answer: "D",
+                explanation: "The subcapsular sinus is the initial point of entry for afferent lymph into the lymph node.",
+                topic: "Anatomy & Physiology"
+            },
+            {
+                question: "61. A biopsy from a mesenteric lymph node shows multiple small granulomas composed of epithelioid cells with minimal necrosis. Special stains for acid-fast bacilli are negative. This histology is most consistent with:",
+                options: ["A. Early tuberculous lymphadenitis", "B. Sarcoidosis", "C. Acute suppurative lymphadenitis", "D. Reactive follicular hyperplasia"],
+                answer: "A",
+                explanation: "Early tuberculous lymphadenitis shows granulomas with minimal necrosis, and acid-fast bacilli may not be visible yet.",
+                topic: "Pathology"
+            },
+            {
+                question: "62. Which type of reactive lymphoid hyperplasia is characterized by expansion of the lymphatic sinuses due to an accumulation of benign histiocytes and lymphocytes, and can be seen in conditions like sinus histiocytosis with massive lymphadenopathy?",
+                options: ["A. Follicular hyperplasia", "B. Paracortical hyperplasia", "C. Sinusoidal hyperplasia", "D. Medullary hyperplasia"],
+                answer: "C",
+                explanation: "Sinusoidal hyperplasia is characterized by expansion of lymphatic sinuses with histiocytes and lymphocytes.",
+                topic: "Pathology"
+            },
+            {
+                question: "63. In the context of lymph node drainage and involvement, acute bacterial lymphadenitis secondary to a peritonsillar abscess would most typically exhibit which of the following gross and microscopic features?",
+                options: [
+                    "A. Matted, firm nodes with caseous necrosis on cut surface",
+                    "B. Discrete, soft, tender nodes with neutrophilic infiltration",
+                    "C. Non-painful enlargement with paracortical immunoblasts",
+                    "D. Diffuse enlargement with non-caseating granulomas"
+                ],
+                answer: "B",
+                explanation: "Acute bacterial lymphadenitis presents as discrete, soft, tender nodes with neutrophilic infiltration.",
+                topic: "Pathology"
+            },
+            // Pharmacology Questions (64-75)
+            {
+                question: "64. Warfarin exerts its anticoagulant effect primarily by inhibiting which of the following?",
+                options: ["A. Platelet aggregation", "B. Thrombin (Factor IIa)", "C. Factor Xa", "D. Vitamin K epoxide reductase"],
+                answer: "D",
+                explanation: "Warfarin inhibits vitamin K epoxide reductase, preventing the synthesis of vitamin K-dependent clotting factors.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "65. Which of the following drugs is a specific, direct thrombin inhibitor?",
+                options: ["A. Alteplase", "B. Lepirudin", "C. Apixaban", "D. Rivaroxaban"],
+                answer: "B",
+                explanation: "Lepirudin is a direct thrombin inhibitor.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "66. A patient on warfarin presents with life-threatening bleeding. What is the most appropriate immediate treatment?",
+                options: ["A. Oral vitamin K1", "B. Protamine sulfate", "C. IV vitamin K1 and fresh frozen plasma", "D. Abciximab"],
+                answer: "C",
+                explanation: "For life-threatening bleeding on warfarin, IV vitamin K1 and fresh frozen plasma are needed for immediate reversal.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "67. Which of the following is a characteristic feature of CMV in tissue biopsy?",
+                options: ["A. Downey cells", "B. Heterophile antibodies", "C. Kaposi sarcoma lesions", "D. Owl-eye inclusions"],
+                answer: "D",
+                explanation: "CMV infection shows owl-eye inclusions (large intranuclear inclusions) in tissue biopsies.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "68. A patient with massive pulmonary embolism is given tPA. What is the primary mechanism of action of thrombolytics like tPA?",
+                options: [
+                    "A. Antagonism of vitamin K",
+                    "B. Activation of plasminogen to plasmin",
+                    "C. Inhibition of thrombin",
+                    "D. Inhibition of platelet aggregation"
+                ],
+                answer: "B",
+                explanation: "Thrombolytics like tPA activate plasminogen to plasmin, which degrades fibrin clots.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "69. What is the distinguishing feature of metamyelocytes?",
+                options: [
+                    "A. Change in nuclear morphology",
+                    "B. Decrease in cell size",
+                    "C. Appearance of specific granules",
+                    "D. Appearance of non-specific granules"
+                ],
+                answer: "A",
+                explanation: "Metamyelocytes are distinguished by their indented or kidney-shaped nucleus.",
+                topic: "Hematology"
+            },
+            // Additional questions from your text (70-125)
+            {
+                question: "70. What test detects hypergammaglobulinemia in leishmaniasis patients?",
+                options: ["A. Skin test (Montenegro test)", "B. PCR test", "C. Formol-Gel test", "D. Blood culture"],
+                answer: "C",
+                explanation: "The Formol-Gel test detects hypergammaglobulinemia in leishmaniasis patients.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "71. What is the infective stage of Wuchereria bancrofti?",
+                options: ["A. Adult worm", "B. Egg", "C. Microfilaria", "D. Filariform larva"],
+                answer: "D",
+                explanation: "The filariform larva is the infective stage of Wuchereria bancrofti.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "72. How are filarial infections transmitted to humans?",
+                options: ["A. Direct contact with infected individuals", "B. Congenital transmission", "C. Blood transfusion", "D. Bites of blood-sucking arthropods"],
+                answer: "D",
+                explanation: "Filarial infections are transmitted to humans by bites of blood-sucking arthropods.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "73. A patient has defective von Willebrand factor. The main problem is which of the following?",
+                options: ["A. Platelet adhesion", "B. Fibrin formation", "C. Heparin action", "D. RBC formation"],
+                answer: "A",
+                explanation: "Von Willebrand factor is essential for platelet adhesion to damaged endothelium.",
+                topic: "Hematology"
+            },
+            {
+                question: "74. Glucose-6-phosphate dehydrogenase (G6PD) deficiency causes which of the following?",
+                options: ["A. Porphyria Cutanea Tarda", "B. Acute hepatic porphyrias", "C. Favism", "D. Erythropoietic protoporphyria"],
+                answer: "C",
+                explanation: "G6PD deficiency causes favism (acute hemolytic anemia after fava bean ingestion).",
+                topic: "Hematology"
+            },
+            {
+                question: "75. Which of the following is the shape of the nucleus of eosinophil?",
+                options: ["A. U-shaped", "B. Rounded", "C. Kidney-shaped or indented", "D. Bilobed"],
+                answer: "D",
+                explanation: "Eosinophils have a bilobed nucleus.",
+                topic: "Hematology"
+            },
+            {
+                question: "76. Which of the following is the habitat of Wuchereria bancrofti?",
+                options: ["A. Subcutaneous tissues and lymphatic system", "B. Nucleated cells", "C. Reticuloendothelial cells", "D. Smooth muscle"],
+                answer: "A",
+                explanation: "Wuchereria bancrofti inhabits subcutaneous tissues and the lymphatic system.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "77. A patient after surgery develops a clot inside a blood vessel. What is the name of this disease?",
+                options: ["A. Hypocalcemia", "B. Hemophilia", "C. Purpura", "D. Thromboembolism"],
+                answer: "D",
+                explanation: "A clot inside a blood vessel is called thromboembolism.",
+                topic: "Pathology"
+            },
+            {
+                question: "78. In which form is Leishmania donovani found within the definitive host?",
+                options: ["A. Epimastigote", "B. Trypomastigote", "C. Amastigote", "D. Promastigote"],
+                answer: "C",
+                explanation: "Leishmania donovani exists as amastigotes within human macrophages.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "79. Sideroblastic anemia is due to deficiency of which enzyme?",
+                options: ["A. Uroporphyrinogen decarboxylase", "B. G6PD", "C. PBG deaminase", "D. ALA synthase"],
+                answer: "D",
+                explanation: "Sideroblastic anemia is due to deficiency of ALA synthase.",
+                topic: "Hematology"
+            },
+            {
+                question: "80. Which of the following enzymes is unique to HIV and essential for its replication?",
+                options: ["A. Integrase", "B. RNA polymerase", "C. Reverse transcriptase", "D. DNA polymerase"],
+                answer: "C",
+                explanation: "Reverse transcriptase is unique to retroviruses like HIV and essential for replication.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "81. Which of the following is the cause of lymphedema in filarial infections?",
+                options: ["A. Fibrosis and obstruction of lymphatics", "B. Increased lymph production", "C. Increased blood flow", "D. Fibrosis and obstruction of blood capillaries"],
+                answer: "A",
+                explanation: "Lymphedema in filariasis results from fibrosis and obstruction of lymphatics.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "82. The first step in heme synthesis involves which of the following?",
+                options: [
+                    "A. Condensation of succinyl-CoA with glycine in cytoplasm",
+                    "B. Condensation of two succinyl-CoA in cytoplasm",
+                    "C. Condensation of succinyl-CoA with glycine in mitochondria",
+                    "D. Condensation of two succinyl-CoA in mitochondria"
+                ],
+                answer: "C",
+                explanation: "The first step in heme synthesis is condensation of succinyl-CoA with glycine in mitochondria.",
+                topic: "Hematology"
+            },
+            {
+                question: "83. A patient on warfarin therapy presents with bleeding and an INR of 5.0. What is the most appropriate management?",
+                options: ["A. Discontinue warfarin and start aspirin", "B. Administer vitamin K", "C. Start heparin infusion", "D. Increase warfarin dose"],
+                answer: "B",
+                explanation: "For INR of 5.0 with bleeding, vitamin K administration is appropriate.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "84. What is the primary habitat of Wuchereria bancrofti in humans?",
+                options: ["A. Reticuloendothelial cells", "B. Lymphatics of the lower limbs", "C. Subcutaneous tissues", "D. Liver"],
+                answer: "B",
+                explanation: "Wuchereria bancrofti primarily inhabits lymphatics of the lower limbs.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "85. How do microfilariae of Brugia malayi differ morphologically from those of Wuchereria bancrofti?",
+                options: ["A. They are found in subcutaneous tissue", "B. They are non-motile", "C. They lack a sheath", "D. They have two separate terminal nuclei"],
+                answer: "D",
+                explanation: "Brugia malayi microfilariae have two separate terminal nuclei.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "86. A patient with liver disease has bleeding tendency because the liver normally synthesizes which of the following?",
+                options: ["A. Thromboxane A2", "B. RBC hemoglobin", "C. Platelets", "D. Most clotting factors"],
+                answer: "D",
+                explanation: "The liver synthesizes most clotting factors.",
+                topic: "Hematology"
+            },
+            {
+                question: "87. A 60-year-old woman with a history of stroke is prescribed clopidogrel. What is the mechanism of action of clopidogrel?",
+                options: ["A. Reversible inhibition of COX-1", "B. Blockade of glycoprotein IIb/IIIa receptors", "C. Inhibition of phosphodiesterase", "D. Irreversible inhibition of ADP receptor"],
+                answer: "D",
+                explanation: "Clopidogrel irreversibly inhibits ADP receptors on platelets.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "88. Which type of nucleic acid does HIV contain?",
+                options: ["A. Double-stranded DNA", "B. Double-stranded RNA", "C. Single-stranded positive RNA", "D. Single-stranded negative RNA"],
+                answer: "C",
+                explanation: "HIV contains single-stranded positive RNA.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "89. A patient on warfarin presents with life-threatening bleeding. What is the most appropriate immediate treatment?",
+                options: ["A. Oral vitamin K1", "B. Abciximab", "C. Protamine sulfate", "D. IV vitamin K1 and fresh frozen plasma"],
+                answer: "D",
+                explanation: "For life-threatening bleeding on warfarin, IV vitamin K1 and fresh frozen plasma are needed.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "90. Which diagnostic test detects heterophile antibodies in EBV infection?",
+                options: ["A. PCR", "B. Monospot / Paul-Bunnell test", "C. ELISA for EBNA", "D. Cell culture"],
+                answer: "B",
+                explanation: "Monospot/Paul-Bunnell test detects heterophile antibodies in EBV infection.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "91. A 70-year-old man with recent myocardial infarction is started on aspirin. What is the primary antiplatelet effect of aspirin?",
+                options: ["A. Inhibiting phosphodiesterase 3", "B. Blocking glycoprotein IIb/IIIa receptors", "C. Blocking ADP receptors", "D. Inhibiting thromboxane synthesis"],
+                answer: "D",
+                explanation: "Aspirin inhibits thromboxane synthesis via irreversible COX-1 inhibition.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "92. Uncontrolled B-cell growth due to EBV infection in immunocompromised patients can result in which condition?",
+                options: ["A. Hairy oral leukoplakia", "B. CMV retinitis", "C. Lymphoproliferative disease", "D. Kaposi sarcoma"],
+                answer: "C",
+                explanation: "EBV can cause lymphoproliferative disease in immunocompromised patients.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "93. A patient with massive pulmonary embolism is given tPA. What is the primary mechanism of action of thrombolytics like tPA?",
+                options: ["A. Antagonism of vitamin K", "B. Activation of plasminogen to plasmin", "C. Inhibition of thrombin", "D. Inhibition of platelet aggregation"],
+                answer: "B",
+                explanation: "Thrombolytics activate plasminogen to plasmin.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "94. A patient has platelet count 40,000/mm³ and develops petechiae. What is the expected finding?",
+                options: ["A. Increased clotting time only", "B. Short bleeding time", "C. Increased RBC count", "D. Prolonged bleeding time"],
+                answer: "D",
+                explanation: "Thrombocytopenia causes prolonged bleeding time.",
+                topic: "Hematology"
+            },
+            {
+                question: "95. A patient on low molecular weight heparin (LMWH) develops bleeding complications. What is the primary target?",
+                options: ["A. Factor Xa", "B. Thrombin (Factor IIa)", "C. Vitamin K epoxide reductase", "D. Platelet glycoprotein IIb/IIIa"],
+                answer: "A",
+                explanation: "LMWH primarily inhibits factor Xa.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "96. A patient cannot tolerate aspirin but needs prophylaxis for TIAs and ischemic strokes. Which drug is an effective alternative?",
+                options: ["A. Aminocaproic acid", "B. Heparin", "C. Clopidogrel", "D. Alteplase"],
+                answer: "C",
+                explanation: "Clopidogrel is an effective alternative to aspirin.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "97. Thrombocytopenic purpura is characterized by which of the following?",
+                options: ["A. Increased clotting", "B. Short bleeding time", "C. Increased platelets", "D. Petechiae and prolonged bleeding time"],
+                answer: "D",
+                explanation: "Thrombocytopenic purpura shows petechiae and prolonged bleeding time.",
+                topic: "Hematology"
+            },
+            {
+                question: "98. A young man lived in India presents with fever, weakness, darkening of face, cheeks and hands, and hepatosplenomegaly. What is the diagnosis?",
+                options: ["A. Toxoplasmosis", "B. Visceral leishmaniasis", "C. Filariasis", "D. Malaria"],
+                answer: "B",
+                explanation: "Visceral leishmaniasis (kala-azar) presents with fever, weakness, hyperpigmentation, and hepatosplenomegaly.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "99. Porphyria cutanea tarda is due to deficiency of which enzyme?",
+                options: ["A. ALA synthase", "B. PBG deaminase", "C. Glucose-6-phosphate dehydrogenase", "D. Uroporphyrinogen decarboxylase"],
+                answer: "D",
+                explanation: "Porphyria cutanea tarda results from uroporphyrinogen decarboxylase deficiency.",
+                topic: "Hematology"
+            },
+            {
+                question: "100. Which of the following is the vector for visceral leishmaniasis?",
+                options: ["A. Tsetse fly", "B. Phlebotomus papatasi", "C. Anopheles mosquito", "D. Aedes mosquito"],
+                answer: "B",
+                explanation: "Phlebotomus sandflies transmit visceral leishmaniasis.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "101. What is the primary action of unfractionated heparin (UFH)?",
+                options: ["A. Inactivation of factor VII", "B. Inactivation of thrombin (IIa) and factor Xa", "C. Stimulation of vitamin K epoxide reductase", "D. Activation of plasminogen"],
+                answer: "B",
+                explanation: "UFH inactivates thrombin (IIa) and factor Xa.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "102. If elephantiasis occurs due to Brugia malayi, where is the swelling typically located?",
+                options: ["A. Upper extremities", "B. Abdomen", "C. Head and neck", "D. Lower extremities below the knee"],
+                answer: "D",
+                explanation: "Brugia malayi typically causes elephantiasis in lower extremities below the knee.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "103. A patient on warfarin for 5 weeks develops painful bluish discoloration of toes. What is this syndrome?",
+                options: ["A. HIT", "B. Purple toe syndrome", "C. Diabetic foot", "D. Raynaud's phenomenon"],
+                answer: "B",
+                explanation: "Purple toe syndrome is a complication of warfarin therapy.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "104. Destruction of CD4+ T cells in HIV infection leads to which outcome?",
+                options: ["A. Enhanced cytotoxic T-cell activity", "B. Increased antibody production", "C. Loss of immunity and opportunistic infections", "D. Latent viral infection"],
+                answer: "C",
+                explanation: "HIV destroys CD4+ T cells, leading to loss of immunity and opportunistic infections.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "105. Repeated inflammatory attacks in Wuchereria bancrofti infection lead to which condition?",
+                options: ["A. Fibrosis and obstruction of blood capillaries", "B. Enlarged liver", "C. Fibrosis and obstruction of lymphatics", "D. Enhanced lymphatic production"],
+                answer: "C",
+                explanation: "Repeated inflammation leads to fibrosis and obstruction of lymphatics in filariasis.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "106. What is the causative parasite of Kala-azar?",
+                options: ["A. Leishmania braziliensis", "B. Leishmania donovani", "C. Leishmania tropica", "D. Leishmania major"],
+                answer: "B",
+                explanation: "Leishmania donovani causes kala-azar (visceral leishmaniasis).",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "107. After a major bleed on LMWH, protamine sulfate is given. What should be expected?",
+                options: ["A. Fully reverses LMWH", "B. Increases bleeding risk", "C. No effect on LMWH", "D. Partially reverses LMWH effects"],
+                answer: "D",
+                explanation: "Protamine sulfate partially reverses LMWH effects.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "108. A patient starting warfarin for chronic atrial fibrillation—what is its mechanism of action?",
+                options: ["A. Inhibition of vitamin K epoxide reductase", "B. Direct inhibition of thrombin", "C. Activation of antithrombin III", "D. Inhibition of ADP receptors"],
+                answer: "A",
+                explanation: "Warfarin inhibits vitamin K epoxide reductase.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "109. A patient on heparin develops platelet count of 50,000/µL. What is the most likely diagnosis?",
+                options: ["A. Bleeding due to overdose", "B. Idiopathic thrombocytopenic purpura", "C. Heparin-induced thrombocytopenia (HIT)", "D. Thrombotic thrombocytopenic purpura"],
+                answer: "C",
+                explanation: "Heparin-induced thrombocytopenia (HIT) is likely.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "110. Globin of hemoglobin A (HbA) is composed of?",
+                options: ["A. α2γ2", "B. α2β2", "C. α chains only", "D. β chains only"],
+                answer: "B",
+                explanation: "HbA has α2β2 globin chains.",
+                topic: "Hematology"
+            },
+            {
+                question: "111. Which of the following is the distinguishing characteristic of platelets?",
+                options: ["A. Arise from the nucleus of megakaryocytes", "B. Biconvex in shape", "C. Biconcave in shape", "D. Absence of mitochondria"],
+                answer: "B",
+                explanation: "Platelets are biconvex in shape.",
+                topic: "Hematology"
+            },
+            {
+                question: "112. Which of the following viruses is associated with heterophile-positive mononucleosis?",
+                options: ["A. CMV", "B. HIV", "C. EBV", "D. Hepatitis B"],
+                answer: "C",
+                explanation: "EBV causes heterophile-positive mononucleosis.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "113. How do thrombolytic agents like Alteplase work?",
+                options: ["A. Inhibit factor Xa directly", "B. Prevent platelet aggregation", "C. Block vitamin K synthesis", "D. Enhance conversion of plasminogen to plasmin"],
+                answer: "D",
+                explanation: "Thrombolytics enhance conversion of plasminogen to plasmin.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "114. The biconcave shape of RBCs mainly helps by increasing?",
+                options: ["A. Surface area and flexibility", "B. Platelet function", "C. Nucleus size", "D. Plasma viscosity"],
+                answer: "A",
+                explanation: "Biconcave shape increases surface area and flexibility.",
+                topic: "Hematology"
+            },
+            {
+                question: "115. The pentose phosphate pathway in RBCs is crucial for the production of?",
+                options: ["A. Glucose", "B. Cholesterol", "C. Fatty acids", "D. NADPH"],
+                answer: "D",
+                explanation: "Pentose phosphate pathway produces NADPH in RBCs.",
+                topic: "Hematology"
+            },
+            {
+                question: "116. Which of the following is the earliest marker to detect HIV infection?",
+                options: ["A. CD4 count", "B. P24 antigen", "C. gp120", "D. CD4:CD8 ratio"],
+                answer: "B",
+                explanation: "P24 antigen is the earliest marker of HIV infection.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "117. Heparin exerts its anticoagulant effect mainly by increasing?",
+                options: ["A. Platelet adhesion", "B. Fibrinogen production", "C. Antithrombin III activity", "D. Thromboxane A2"],
+                answer: "C",
+                explanation: "Heparin increases antithrombin III activity.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "118. What is the dual mechanism of action of Dipyridamole?",
+                options: ["A. Activates ATIII and plasminogen", "B. Inhibits COX and ADP receptors", "C. Inhibits phosphodiesterase and increases plasma adenosine", "D. Blocks factor Xa and thrombin"],
+                answer: "C",
+                explanation: "Dipyridamole inhibits phosphodiesterase and increases plasma adenosine.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "119. Post-kala-azar dermal leishmaniasis (PKDL) occurs after which stage?",
+                options: ["A. Initial infection", "B. Apparently successful treatment", "C. Blood transfusion", "D. Congenital transmission"],
+                answer: "B",
+                explanation: "PKDL occurs after apparently successful treatment of visceral leishmaniasis.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "120. Which skin change is characteristic of elephantiasis?",
+                options: ["A. Ulceration", "B. Erythema", "C. Hard, brawny edema", "D. Vesicles"],
+                answer: "C",
+                explanation: "Elephantiasis shows hard, brawny edema.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "121. Which antidote specifically reverses Dabigatran in emergencies?",
+                options: ["A. Protamine sulfate", "B. Vitamin K1", "C. Aminocaproic acid", "D. Idarucizumab"],
+                answer: "D",
+                explanation: "Idarucizumab reverses Dabigatran.",
+                topic: "Pharmacology"
+            },
+            {
+                question: "122. Globin of hemoglobin F (HbF) is composed of?",
+                options: [
+                    "A. Four polypeptides, two alpha (α) and two gamma (γ) chains",
+                    "B. Four polypeptides, two alpha (α) and two beta (β) chains",
+                    "C. Two alpha chains only",
+                    "D. Two beta chains only"
+                ],
+                answer: "A",
+                explanation: "HbF has α2γ2 globin chains.",
+                topic: "Hematology"
+            },
+            {
+                question: "123. Outcome of CMV infection in immunocompetent individuals is usually?",
+                options: ["A. Asymptomatic", "B. Lymphadenitis only", "C. Retinitis", "D. Fatal disease"],
+                answer: "A",
+                explanation: "CMV infection is usually asymptomatic in immunocompetent individuals.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "124. Which form of Toxoplasma gondii is found in tissue cysts?",
+                options: ["A. Oocysts", "B. Sporozoites", "C. Bradyzoites", "D. Tachyzoites"],
+                answer: "C",
+                explanation: "Bradyzoites are found in tissue cysts of Toxoplasma gondii.",
+                topic: "Infectious Diseases"
+            },
+            {
+                question: "125. Aminocaproic acid is contraindicated in which condition?",
+                options: ["A. Hemophilia", "B. Disseminated intravascular coagulation (DIC)", "C. Post-prostatectomy bleeding", "D. Intracranial aneurysm"],
+                answer: "B",
+                explanation: "Aminocaproic acid is contraindicated in DIC.",
+                topic: "Pharmacology"
+            }
+        ];
+
+        // Quiz State Variables
+        let currentQuestionIndex = 0;
+        let userAnswers = Array(quizData.length).fill(null);
+        let score = 0;
+        let quizCompleted = false;
+        let showFeedback = false;
+
+        // DOM Elements
+        const questionTextElement = document.getElementById('question-text');
+        const optionsContainerElement = document.getElementById('options-container');
+        const progressTextElement = document.getElementById('progress-text');
+        const scoreTextElement = document.getElementById('score-text');
+        const progressFillElement = document.getElementById('progress-fill');
+        const questionCounterElement = document.getElementById('question-counter');
+        const questionTopicElement = document.getElementById('question-topic');
+        const prevButton = document.getElementById('prev-btn');
+        const nextButton = document.getElementById('next-btn');
+        const submitButton = document.getElementById('submit-btn');
+        const quizContainer = document.getElementById('quiz-container');
+        const resultsContainer = document.getElementById('results-container');
+        const scorePercentageElement = document.getElementById('score-percentage');
+        const correctAnswersElement = document.getElementById('correct-answers');
+        const incorrectAnswersElement = document.getElementById('incorrect-answers');
+        const skippedQuestionsElement = document.getElementById('skipped-questions');
+        const totalQuestionsResultElement = document.getElementById('total-questions-result');
+        const scoreCircle = document.getElementById('score-circle');
+        const restartButton = document.getElementById('restart-btn');
+        const questionsListElement = document.getElementById('questions-list');
+        const questionsListContainer = document.getElementById('questions-list-container');
+        const answerFeedback = document.getElementById('answer-feedback');
+        const feedbackTitle = document.getElementById('feedback-title');
+        const feedbackContent = document.getElementById('feedback-content');
+
+        // Initialize Quiz
+        function initQuiz() {
+            // Create question navigation list
+            createQuestionList();
+            
+            // Load first question
+            loadQuestion(currentQuestionIndex);
+            
+            // Update progress
+            updateProgress();
+            
+            // Add event listeners
+            prevButton.addEventListener('click', goToPreviousQuestion);
+            nextButton.addEventListener('click', goToNextQuestion);
+            submitButton.addEventListener('click', submitQuiz);
+            restartButton.addEventListener('click', restartQuiz);
+        }
+
+        // Create question navigation list
+        function createQuestionList() {
+            questionsListElement.innerHTML = '';
+            for (let i = 0; i < quizData.length; i++) {
+                const questionNumber = document.createElement('div');
+                questionNumber.className = 'question-number';
+                questionNumber.textContent = i + 1;
+                questionNumber.dataset.index = i;
+                
+                if (i === currentQuestionIndex) {
+                    questionNumber.classList.add('current');
+                }
+                
+                questionNumber.addEventListener('click', () => {
+                    goToQuestion(parseInt(questionNumber.dataset.index));
+                });
+                
+                questionsListElement.appendChild(questionNumber);
+            }
+        }
+
+        // Load a specific question
+        function loadQuestion(index) {
+            // Reset options container
+            optionsContainerElement.innerHTML = '';
+            
+            // Hide feedback
+            answerFeedback.classList.remove('show');
+            showFeedback = false;
+            
+            // Update current question index
+            currentQuestionIndex = index;
+            
+            // Get current question
+            const currentQuestion = quizData[index];
+            
+            // Update question text
+            questionTextElement.textContent = currentQuestion.question;
+            questionCounterElement.textContent = `Question ${index + 1}`;
+            questionTopicElement.textContent = currentQuestion.topic;
+            
+            // Create options
+            currentQuestion.options.forEach((option, optionIndex) => {
+                const optionElement = document.createElement('div');
+                optionElement.className = 'option';
+                
+                // Extract letter from option (A., B., C., D.)
+                const optionLetter = option.substring(0, 1);
+                
+                if (userAnswers[index] === optionLetter) {
+                    optionElement.classList.add('selected');
+                    
+                    // If feedback is enabled and quiz is not completed, show if answer is correct/incorrect
+                    if (showFeedback && !quizCompleted) {
+                        if (optionLetter === currentQuestion.answer) {
+                            optionElement.classList.add('correct');
+                        } else {
+                            optionElement.classList.add('incorrect');
+                        }
+                    }
+                }
+                
+                optionElement.innerHTML = `
+                    <div class="option-letter">${optionLetter}</div>
+                    <div class="option-text">${option.substring(3)}</div>
+                `;
+                
+                optionElement.addEventListener('click', () => selectOption(optionLetter));
+                optionsContainerElement.appendChild(optionElement);
+            });
+            
+            // Update navigation buttons
+            updateNavigationButtons();
+            
+            // Update question list
+            updateQuestionList();
+        }
+
+        // Select an option
+        function selectOption(selectedOption) {
+            // Deselect all options and remove correct/incorrect classes
+            document.querySelectorAll('.option').forEach(option => {
+                option.classList.remove('selected', 'correct', 'incorrect');
+            });
+            
+            // Select the clicked option
+            const selectedOptionElement = Array.from(document.querySelectorAll('.option')).find(
+                option => option.querySelector('.option-letter').textContent === selectedOption
+            );
+            selectedOptionElement.classList.add('selected');
+            
+            // Get current question
+            const currentQuestion = quizData[currentQuestionIndex];
+            
+            // Show if answer is correct or incorrect immediately
+            if (selectedOption === currentQuestion.answer) {
+                selectedOptionElement.classList.add('correct');
+            } else {
+                selectedOptionElement.classList.add('incorrect');
+                
+                // Also highlight the correct answer
+                document.querySelectorAll('.option').forEach(option => {
+                    if (option.querySelector('.option-letter').textContent === currentQuestion.answer) {
+                        option.classList.add('correct');
+                    }
+                });
+            }
+            
+            // Save the answer
+            userAnswers[currentQuestionIndex] = selectedOption;
+            
+            // Show feedback
+            showAnswerFeedback(selectedOption);
+            
+            // Update question list to show answered
+            updateQuestionList();
+            
+            // Enable next button if not already enabled
+            if (nextButton.disabled) {
+                nextButton.disabled = false;
+            }
+        }
+
+        // Show answer feedback
+        function showAnswerFeedback(selectedOption) {
+            const currentQuestion = quizData[currentQuestionIndex];
+            const isCorrect = selectedOption === currentQuestion.answer;
+            
+            feedbackTitle.textContent = isCorrect ? "✓ Correct!" : "✗ Incorrect";
+            feedbackContent.textContent = currentQuestion.explanation;
+            
+            answerFeedback.classList.add('show');
+            showFeedback = true;
+        }
+
+        // Update navigation buttons
+        function updateNavigationButtons() {
+            // Previous button
+            prevButton.disabled = currentQuestionIndex === 0;
+            
+            // Next button
+            if (currentQuestionIndex === quizData.length - 1) {
+                nextButton.style.display = 'none';
+                submitButton.style.display = 'flex';
+            } else {
+                nextButton.style.display = 'flex';
+                submitButton.style.display = 'none';
+            }
+            
+            // Enable next button
+            nextButton.disabled = false;
+        }
+
+        // Update question list highlighting
+        function updateQuestionList() {
+            const questionNumbers = document.querySelectorAll('.question-number');
+            questionNumbers.forEach((number, index) => {
+                number.classList.remove('current', 'answered', 'incorrect', 'skipped');
+                
+                if (index === currentQuestionIndex) {
+                    number.classList.add('current');
+                }
+                
+                if (userAnswers[index] !== null) {
+                    if (quizCompleted) {
+                        if (userAnswers[index] === quizData[index].answer) {
+                            number.classList.add('answered');
+                        } else {
+                            number.classList.add('incorrect');
+                        }
+                    } else {
+                        number.classList.add('answered');
+                    }
+                }
+            });
+        }
+
+        // Go to next question
+        function goToNextQuestion() {
+            if (currentQuestionIndex < quizData.length - 1) {
+                currentQuestionIndex++;
+                loadQuestion(currentQuestionIndex);
+                updateProgress();
+            }
+        }
+
+        // Go to previous question
+        function goToPreviousQuestion() {
+            if (currentQuestionIndex > 0) {
+                currentQuestionIndex--;
+                loadQuestion(currentQuestionIndex);
+                updateProgress();
+            }
+        }
+
+        // Go to specific question
+        function goToQuestion(index) {
+            if (index >= 0 && index < quizData.length) {
+                currentQuestionIndex = index;
+                loadQuestion(currentQuestionIndex);
+                updateProgress();
+            }
+        }
+
+        // Update progress bar and text
+        function updateProgress() {
+            const progress = ((currentQuestionIndex + 1) / quizData.length) * 100;
+            progressFillElement.style.width = `${progress}%`;
+            progressTextElement.textContent = `Question ${currentQuestionIndex + 1} of ${quizData.length}`;
+            
+            // Calculate current score
+            let currentScore = 0;
+            for (let i = 0; i < quizData.length; i++) {
+                if (userAnswers[i] === quizData[i].answer) {
+                    currentScore++;
+                }
+            }
+            
+            const scorePercentage = quizData.length > 0 ? Math.round((currentScore / quizData.length) * 100) : 0;
+            scoreTextElement.textContent = `Score: ${scorePercentage}%`;
+        }
+
+        // Submit quiz
+        function submitQuiz() {
+            // Calculate final score
+            score = 0;
+            let correctCount = 0;
+            let incorrectCount = 0;
+            let skippedCount = 0;
+            
+            for (let i = 0; i < quizData.length; i++) {
+                if (userAnswers[i] === null) {
+                    skippedCount++;
+                } else if (userAnswers[i] === quizData[i].answer) {
+                    correctCount++;
+                    score++;
+                } else {
+                    incorrectCount++;
+                }
+            }
+            
+            const scorePercentage = Math.round((score / quizData.length) * 100);
+            
+            // Update results
+            scorePercentageElement.textContent = `${scorePercentage}%`;
+            correctAnswersElement.textContent = correctCount;
+            incorrectAnswersElement.textContent = incorrectCount;
+            skippedQuestionsElement.textContent = skippedCount;
+            totalQuestionsResultElement.textContent = quizData.length;
+            
+            // Update score circle
+            scoreCircle.style.background = `conic-gradient(var(--secondary-blue) 0% ${scorePercentage}%, #e8eaf6 ${scorePercentage}% 100%)`;
+            
+            // Show results, hide quiz
+            quizContainer.style.display = 'none';
+            resultsContainer.style.display = 'block';
+            questionsListContainer.style.display = 'none';
+            
+            // Mark quiz as completed
+            quizCompleted = true;
+            
+            // Update question list with correct/incorrect indicators
+            updateQuestionList();
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Restart quiz
+        function restartQuiz() {
+            // Reset quiz state
+            currentQuestionIndex = 0;
+            userAnswers = Array(quizData.length).fill(null);
+            score = 0;
+            quizCompleted = false;
+            showFeedback = false;
+            
+            // Show quiz, hide results
+            quizContainer.style.display = 'block';
+            resultsContainer.style.display = 'none';
+            questionsListContainer.style.display = 'block';
+            
+            // Reload first question
+            loadQuestion(currentQuestionIndex);
+            updateProgress();
+            
+            // Reset question list
+            updateQuestionList();
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Initialize the quiz when page loads
+        document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>
